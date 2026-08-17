@@ -1,0 +1,36 @@
+name: Prototype CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'prototype/**'
+      - '.github/workflows/prototype-ci.yml'
+  pull_request:
+    paths:
+      - 'prototype/**'
+      - '.github/workflows/prototype-ci.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototype
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: prototype/package.json
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build prototype
+        run: npm run build
