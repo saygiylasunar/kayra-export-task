@@ -40,6 +40,102 @@ Elonky tarafında öne çıkan mevcut değer önerileri:
 - Canlı stok bilgisi
 - Ürün fotoğrafları, özellikleri ve yorumlar
 
+## Kurumsal Kimlik ve Marka Sistemi
+
+Tasarım yalnızca işlevsel bir marketplace şablonu olmayacaktır. Kayra Export ile Elonky arasındaki kurumsal ilişki ve mevcut marka dili korunarak yeniden yorumlanacaktır.
+
+### Marka hiyerarşisi
+- **Elonky:** kullanıcıya dönük pazaryeri markası
+- **Kayra Export:** ürünün arkasındaki şirket / case bağlamı
+
+### Kurumsal kimlikte korunacak unsurlar
+- Mevcut Elonky logo kullanımı ve güvenli boşluk alanları
+- Mevcut marka renkleri ve bunlardan türetilen nötr / yüzey / durum renkleri
+- Tipografi karakteri ve okunabilirlik
+- İkonografi yaklaşımı
+- Buton, input, chip, badge ve card gibi temel UI bileşenlerinde ortak görsel dil
+- Global pazaryeri kimliğini destekleyen sade ve güven veren iletişim tonu
+
+Kurumsal kimlik, erişilebilirlik ve kullanılabilirliğin önüne geçmeyecek; marka rengi özellikle CTA, aktif durum, link ve güven sinyallerinde kontrollü kullanılacaktır.
+
+## Çok Dilli Deneyim — i18n / TR-EN
+
+Çalışma yalnızca Türkçe statik mockup olarak ele alınmayacaktır. Arayüz başlangıçtan itibaren **TR / EN çok dilli kullanım** düşünülerek tasarlanacaktır.
+
+### Frontend yaklaşımı
+- `src/locales/` altında locale dosyaları
+- `tr.json`
+- `en.json`
+- UI metinlerinin hard-coded tutulmaması
+- Dil tercihi uygulama genelinde korunmalı
+- Dil değişiminde kullanıcı bulunduğu sayfayı ve aktif durumu kaybetmemeli
+- Filtreler, sıralama, arama, ürün sayfası ve sepet gibi akışlar locale değişiminden etkilenmeden devam etmeli
+
+### Dil seçici
+Header üzerinde erişilebilir bir **TR / EN** dil kontrolü bulunacaktır.
+
+Örnek davranış:
+- `TR` → Türkçe
+- `EN` → English / Global
+
+Mobilde dil seçimi hesap / yardımcı menü içinde de erişilebilir kalacaktır.
+
+### Tasarım açısından i18n kuralları
+- İngilizce metinlerin Türkçeden daha uzun veya daha kısa olabileceği hesaba katılacak
+- Buton ve chip genişlikları sabit metne göre değil içerik davranışına göre tasarlanacak
+- Ürün başlıkları ve üretici adlarında truncation / line-clamp kuralları tanımlanacak
+- Tarih, para birimi ve sayı formatları locale duyarlı ele alınacak
+- `$`, `₺`, `€` gibi para birimleri ürün / pazar bağlamında formatlanabilir olacak
+- Metinler Figma’da mümkün olduğunca semantic isimlerle tutulacak
+
+## Responsive ve Mobile-First Yaklaşım
+
+Çalışma yalnızca 1440 px masaüstü ekranından ibaret olmayacaktır. Ana component sistemi responsive davranış düşünülerek kurulacaktır.
+
+### Hedef kırılımlar
+- **Mobil:** 360–430 px
+- **Tablet:** 768–1024 px
+- **Desktop:** 1280–1440+ px
+
+Figma tesliminde en az:
+1. Desktop PLP
+2. Mobile PLP
+3. Desktop PDP
+4. Mobile PDP
+
+ana durumları gösterilecektir.
+
+### Mobil PLP davranışı
+Desktop’taki kalıcı sol filtre paneli mobilde kullanılmayacaktır.
+
+Mobilde:
+- Tek veya iki kolonlu ürün grid’i
+- Sticky / erişilebilir arama alanı
+- `Filtrele` butonu ile bottom sheet / drawer
+- `Sırala` için ayrı sheet / menu
+- Aktif filtrelerin yatay kaydırılabilir chip yapısı
+- Sonuç sayısı görünür fakat ikincil hiyerarşide
+- Ürün kartında yalnız kritik karar bilgileri
+- Favori aksiyonu dokunma alanı en az erişilebilir boyutta
+
+### Mobil PDP davranışı
+- Görsel galeri ekran genişliğini kullanır
+- Ürün bilgileri tek kolon akar
+- Varyant seçimleri dokunma odaklıdır
+- Ana CTA mobilde sticky bottom action olarak değerlendirilebilir
+- Üretici ve güven bilgileri accordion / section yapısına dönüşebilir
+- Ödeme ve teslimat metinleri kartı boğmadan progressive disclosure ile verilir
+
+### Responsive component prensipleri
+- Auto Layout
+- Content-driven height
+- Min / max width kuralları
+- 8 pt spacing sistemi
+- Grid değişimi: desktop → tablet → mobile
+- Breakpoint’e göre görünürlük ve yer değiştirme kuralları
+- Hover’a bağımlı kritik aksiyon bulunmaması
+- Touch hedeflerinin mobilde yeterli büyüklükte olması
+
 ## Ürün Kapsamı
 
 Case senaryosu tekstil ürünleri üzerine kurulduğu için ana PLP tekstil odaklı tutulacaktır. Elonky’nin mevcut kategori yapısından yararlanılabilecek örnekler:
@@ -64,8 +160,10 @@ Kayra Export’un üretim ve e-ihracat deneyiminden yararlanılabilecek örnek �
 
 1. Ürün Listeleme Sayfası — varsayılan durum
 2. Ürün Listeleme — aktif filtre / arama durumu
-3. Ürün Detay Sayfası — varsayılan durum
-4. Ürün Detay Sayfası — varyant ve satın alma durumu
+3. Ürün Listeleme — mobil
+4. Ürün Detay Sayfası — varsayılan durum
+5. Ürün Detay Sayfası — varyant ve satın alma durumu
+6. Ürün Detay Sayfası — mobil
 
 ## PLP — Ürün Listeleme
 
@@ -222,6 +320,9 @@ Bu öğeler daha sonra Kayra Export tarafından ürün gereksinimi olarak doğru
 
 Arayüzün hedefi Trendyol kopyası üretmek değildir. Mevcut Elonky deneyiminin ürün keşfini korurken;
 
+- kurumsal kimliği koruyan tutarlı bir design system,
+- TR / EN i18n uyumluluğu,
+- mobile-first ve responsive component davranışları,
 - daha güçlü üretici görünürlüğü,
 - daha açık güven sinyalleri,
 - daha kontrollü bilgi yoğunluğu,
@@ -242,15 +343,29 @@ Arayüzün hedefi Trendyol kopyası üretmek değildir. Mevcut Elonky deneyimini
 8. Empty state aktif filtreleri temizleme aksiyonu sunmalı
 9. Fiyat ve indirim bilgileri erişilebilir biçimde okunmalı
 10. Üretici doğrulama rozeti tooltip / açıklama ile anlamlandırılmalı
+11. TR / EN locale değişiminde mevcut route, filtre ve kullanıcı durumu korunmalı
+12. UI metinleri `tr.json` / `en.json` üzerinden yönetilmeli; component içine hard-coded metin yazılmamalı
+13. Para birimi / sayı / tarih biçimlendirmesi locale duyarlı olmalı
+14. Desktop filtre paneli mobilde drawer / bottom sheet davranışına dönüşmeli
+15. Mobilde sıralama ve filtreleme bağımsız aksiyonlar olarak erişilebilir olmalı
+16. PDP ana CTA mobilde sticky bottom action olarak değerlendirilmelidir
+17. Responsive grid ve card davranışları breakpoint bazında tanımlanmalı
+18. Kritik aksiyonlar hover durumuna bağımlı olmamalı
 
 ## Teslimler
 
 - Figma tasarım bağlantısı
-- PLP
+- Kurumsal kimlik / UI foundations
+- TR / EN dil varyantları
+- Desktop PLP
+- Mobile PLP
 - Aktif filtre durumu
 - Ürün kartı sistemi
-- PDP
+- Desktop PDP
+- Mobile PDP
 - Component / state çalışmaları
+- Responsive davranış notları
+- i18n davranış notları
 - Kısa UX karar dokümanı
 - Frontend developer handoff notları
 - GitHub issue listesi
