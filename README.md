@@ -1,0 +1,61 @@
+# Kayra Export — UX/UI & Grafik Tasarım Case
+
+> ## İnsan liderliğinde, yapay zekâ destekli çalışma
+> Bu repository, **Ersen FİLİZ tarafından yönlendirilen ve nihai kararları Ersen tarafından verilen** bir case çalışmasıdır. ChatGPT; araştırma, alternatif üretme, edge-case analizi, dokümantasyon ve teknik handoff aşamalarında yardımcı araç olarak kullanılmıştır.
+
+| Çalışma alanı | Ersen | ChatGPT |
+|---|---|---|
+| Ürün yönü | **Ana karar verici** | Brief analizi, alternatif ve risk üretimi |
+| UX/UI | Akış, hiyerarşi, marka uyumu ve final seçim | IA, state, responsive ve erişilebilirlik kontrolü |
+| Kurumsal kimlik | Nihai görsel yön | Tutarlılık ve design-system analizi |
+| TR / EN i18n | Ürün gereksinimi ve final kapsam | Locale mimarisi ve edge-case dokümantasyonu |
+| Responsive / mobil | Final davranış ve öncelikler | Breakpoint, drawer, sticky CTA önerileri |
+| Frontend | Uygulama öncelikleri | Prototipleme, issue ve handoff desteği |
+| Nihai onay | **Ersen** | İkinci göz |
+
+## Çalışmalar
+
+- [01 — UX/UI Çalışması](./01%20-%20UX%20UI%20%C3%87al%C4%B1%C5%9Fmas%C4%B1/README.md)
+- [Analiz ve Raporlar](./01%20-%20UX%20UI%20%C3%87al%C4%B1%C5%9Fmas%C4%B1/ANALIZ-VE-RAPORLAR.md)
+- [Frontend Handoff](./01%20-%20UX%20UI%20%C3%87al%C4%B1%C5%9Fmas%C4%B1/FRONTEND-HANDOFF.md)
+- [02 — Grafik Tasarım Çalışması](./02%20-%20Grafik%20Tasar%C4%B1m%20%C3%87al%C4%B1%C5%9Fmas%C4%B1/README.md)
+- [`prototype/` — çalışan responsive TR/EN arayüz](./prototype)
+
+## Çalışan Prototip
+
+Prototip, Figma tesliminin yerine geçmez; UX kararlarını gerçek tarayıcı davranışıyla doğrulamak için hazırlanmıştır.
+
+### Özellikler
+- React + TypeScript + Vite
+- TR / EN i18n ve dil tercihinin korunması
+- Mobile-first responsive PLP / PDP
+- Mobil filtre drawer'ı
+- Aktif filtre chipleri
+- Sıralama
+- Favori durumu
+- Ürün / kategori / üretici araması
+- Üretici görünürlüğü
+- Elonky güven / fulfillment sinyalleri
+- Locale-aware para biçimlendirme
+
+### Yerelde çalıştırma
+```bash
+cd prototype
+npm install
+npm run dev
+```
+
+### Build
+```bash
+cd prototype
+npm run build
+```
+
+Netlify yapılandırması repository kökündeki `netlify.toml` dosyasındadır.
+
+## Kaynaklar
+
+- Elonky: https://elonky.com/tr
+- Kayra Export: https://kayraexport.com
+
+> Marka renkleri için kaynak dosya / brand guideline sağlanmadığı sürece prototipteki renk paleti **kurumsal yorum** olarak değerlendirilir; resmi brand tokenı olarak sunulmaz.
