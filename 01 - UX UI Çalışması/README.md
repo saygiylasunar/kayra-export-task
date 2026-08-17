@@ -2,6 +2,25 @@
 
 ## Kayra Export / Elonky — Ürün Listeleme ve Keşif Deneyimi
 
+> ### İnsan liderliğinde, yapay zekâ destekli tasarım süreci
+> Bu case, **Ersen tarafından yönlendirilen ve nihai kararları Ersen tarafından verilen** bir UX/UI çalışmasıdır. ChatGPT; araştırma, karşılaştırmalı analiz, alternatif üretme, dokümantasyon ve teknik handoff aşamalarında yardımcı tasarım / analiz aracı olarak kullanılmıştır.
+>
+> Amaç yapay zekâya tasarım yaptırmak değil; **tasarımcının karar kalitesini, araştırma hızını ve edge-case kapsamını artırmak** için onu görünür ve denetlenebilir bir araç olarak kullanmaktır.
+
+### Çalışma ve analiz sahipliği
+
+| Alan | Ersen | ChatGPT |
+|---|---|---|
+| Ürün yönü | **Ana karar verici** — kapsamı, öncelikleri ve nihai yönü belirler | Briefi analiz eder, alternatifler ve riskler çıkarır |
+| UX kararları | Önerileri seçer, değiştirir veya reddeder | Akış, bilgi mimarisi, filtre, güven ve state alternatifleri üretir |
+| UI / kurumsal kimlik | Görsel yön, marka uyumu ve final hiyerarşiyi belirler | Component, responsive ve tutarlılık analizi sunar |
+| TR / EN i18n | Çok dilli yapıyı ürün gereksinimi olarak belirler | Locale yapısı, persistence ve metin davranışlarını dokümante eder |
+| Responsive / mobil | Mobile-first yaklaşımın final kapsamını belirler | Breakpoint, drawer, sticky CTA ve responsive grid önerileri üretir |
+| Frontend handoff | Uygulama önceliklerini ve final kapsamı belirler | Issue listesi, state yönetimi ve teknik edge-case notları hazırlar |
+| Nihai onay | **Ersen** | İkinci göz / eleştirel kontrol |
+
+> **Detaylı katkı matrisi ve analiz sahipliği:** [ANALIZ-VE-RAPORLAR.md](./ANALIZ-VE-RAPORLAR.md)
+
 Bu çalışma, Kayra Export tarafından geliştirilen Elonky pazaryeri için ürün keşfi, filtreleme, üretici görünürlüğü, güven ve satın alma kararını iyileştiren bir UX/UI önerisidir.
 
 > **Tasarım ilkesi:** Doğru ürünü, doğru üreticiden, güvenle keşfet.
