@@ -37,6 +37,17 @@ Prototip, Figma tesliminin yerine geçmez; UX kararlarını gerçek tarayıcı d
 - Üretici görünürlüğü
 - Elonky güven / fulfillment sinyalleri
 - Locale-aware para biçimlendirme
+- Resmî Elonky CDN görselleri ile canlı katalog hissi
+
+### Harici medya yaklaşımı
+
+Prototipte kullanılan katalog görsellerinin bir bölümü **Elonky'nin kendi ürün sayfalarından ve CloudFront CDN'inden doğrudan yüklenir**. Bu tercih repository'yi gereksiz binary asset'lerle büyütmemek ve canlı marketplace hissini korumak için yapılmıştır.
+
+- Harici görsel referansları `prototype/src/media.css` içinde ayrı tutulur.
+- CDN görselleri prototip / case bağlamında görsel referans olarak kullanılır.
+- Case içinde üretilmiş ürün metinleri veya UX hipotezleri, kaynak belirtilmedikçe Elonky'nin mevcut üretim verisi olarak sunulmaz.
+- Harici medya yüklenemezse bile UI yüzey rengi / mevcut component yapısı kullanılabilir kalır.
+- Nihai üretim ortamında hotlink yerine izinli asset pipeline / CDN yönetimi tercih edilmelidir.
 
 ### Yerelde çalıştırma
 ```bash
